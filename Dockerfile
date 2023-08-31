@@ -1,11 +1,9 @@
-FROM tomcat:8.0-alpine
+FROM java:8
 
 LABEL maintainer=”nagbandi@hotmail.com”
 
-ADD target/my-app-*.jar /usr/local/tomcat/webapps/
-
-WORKDIR /usr/local/tomcat/bin
-
+ADD target/my-app-*.jar .
 EXPOSE 8080
 
-CMD [“catalina.sh”, “run”]
+#CMD [“catalina.sh”, “run”]
+CMD ["java", "-jar" "my-app-*.jar"]

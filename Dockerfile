@@ -1,9 +1,5 @@
-FROM java:8
+FROM alpine
+RUN apk add openjdk8
 
-LABEL maintainer=”nagbandi@hotmail.com”
-
-ADD target/my-app-*.jar .
-EXPOSE 8080
-
-#CMD [“catalina.sh”, “run”]
-CMD ["java", "-jar" "my-app-*.jar"]
+COPY target/my-app-*.jar .
+CMD ["java", "-jar", "my-app-1.0-SNAPSHOT.jar"]
